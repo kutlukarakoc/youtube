@@ -1,3 +1,41 @@
-.sidenavi{
+.sidenavi {
    width: 240px;
+   overflow-y: scroll;
+
+   .navi__section {
+      padding: 12px;
+      &:not(:first-child) {
+         border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .navi__section-entry {
+         width: calc(100% - 12px);
+         min-height: 40px;
+         max-height: 48px;
+         height: 100%;
+         border-radius: 10px;
+         display: flex;
+         align-items: center;
+         column-gap: 24px;
+         padding: 0 12px;
+         cursor: pointer;
+         &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+         }
+
+         .navi__entry-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+         }
+      }
+   }
+
+   &::-webkit-scrollbar {
+      width: 8px;
+   }
+   &::-webkit-scrollbar-thumb {
+      background-clip: content-box;
+      background-color: rgb(103, 102, 102);
+      border-radius: 8px;
+   }
 }
