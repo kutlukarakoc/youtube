@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Roboto:wght@300;400;500;700&family=Rubik+Bubbles&display=swap");
+
+html {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 12px;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	overflow-y: scroll;
+	height: 100vh;
+	color: #fff;
+}
+
+* {
+	outline: none;
+	box-sizing: border-box;
+}
+
+:root {
+	--main-bg: #0f0f0f;
+	--text-secondary: #aaa;
+}

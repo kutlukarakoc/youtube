@@ -1,4 +1,4 @@
-import './styles/app.scss'
+import './styles/global.scss'
 import Home from './pages/Home'
 import SearchResults from './pages/SearchResults'
 import Watch from './pages/Watch'
