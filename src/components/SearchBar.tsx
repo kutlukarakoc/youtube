@@ -18,7 +18,6 @@ const SearchBar = () => {
                <img src={logo} alt='youtube' loading='lazy' />
                <span className='sb__country'>TR</span>
             </Link>
-            <div className='sb__logo'></div>
          </div>
          <div className='sb__center'>
             <div className='sb__search'>
