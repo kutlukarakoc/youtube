@@ -2,6 +2,15 @@
    width: 240px;
    overflow-y: scroll;
 
+   &::-webkit-scrollbar {
+      width: 8px;
+   }
+   &::-webkit-scrollbar-thumb {
+      background-clip: content-box;
+      background-color: rgb(103, 102, 102);
+      border-radius: 8px;
+   }
+
    .navi__section {
       padding: 12px;
       &:not(:first-child) {
@@ -34,14 +43,5 @@
          padding: 6px 12px 4px;
          font-size: 1.3rem;
       }
-   }
-
-   &::-webkit-scrollbar {
-      width: 8px;
-   }
-   &::-webkit-scrollbar-thumb {
-      background-clip: content-box;
-      background-color: rgb(103, 102, 102);
-      border-radius: 8px;
    }
 }
