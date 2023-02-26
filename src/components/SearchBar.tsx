@@ -1,11 +1,10 @@
 import '../styles/searchbar.scss'
 import { Link } from 'react-router-dom'
 import logo from '../assets/main-logo.png'
-import { BsList } from 'react-icons/bs'
+import { BsList, BsBell } from 'react-icons/bs'
 import { IoSearchOutline } from 'react-icons/io5'
 import { HiMicrophone } from 'react-icons/hi'
-import { HiOutlineVideoCamera } from 'react-icons/hi2'
-import { BsBell } from 'react-icons/bs'
+import { RiVideoAddLine } from 'react-icons/ri'
 
 const SearchBar = () => {
    return (
@@ -32,7 +31,7 @@ const SearchBar = () => {
          </div>
          <div className='sb__end'>
             <div className='sb__end-icons'>
-               <HiOutlineVideoCamera color='#fff' size='2em'/>
+               <RiVideoAddLine color='#fff' size='2em'/>
             </div>
             <div className='sb__end-icons'>
                <BsBell color='#fff' size='2em'/>
