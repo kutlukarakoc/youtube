@@ -5,8 +5,13 @@ import { BsList, BsBell } from 'react-icons/bs'
 import { IoSearchOutline } from 'react-icons/io5'
 import { HiMicrophone } from 'react-icons/hi'
 import { RiVideoAddLine } from 'react-icons/ri'
+import SignInButton from './SignInButton'
+import { useState } from 'react'
 
 const SearchBar = () => {
+
+   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
    return (
       <div className='searchbar'>
          <div className='sb__start'>
@@ -20,25 +25,34 @@ const SearchBar = () => {
          </div>
          <div className='sb__center'>
             <div className='sb__search'>
-                  <input type="text" className='sb__input' placeholder='Search'/>
-                  <button type='button' className='sb__search-btn'>
-                     <IoSearchOutline color='#fff' fill='#fff' size='1.6em'/>
-                  </button>
+               <input type="text" className='sb__input' placeholder='Search' />
+               <button type='button' className='sb__search-btn'>
+                  <IoSearchOutline color='#fff' fill='#fff' size='1.6em' />
+               </button>
             </div>
             <div className='sb__microphone'>
-               <HiMicrophone color='#fff' size='1.9em'/>
+               <HiMicrophone color='#fff' size='1.9em' />
             </div>
          </div>
          <div className='sb__end'>
-            <div className='sb__end-icons'>
-               <RiVideoAddLine color='#fff' size='2em'/>
-            </div>
-            <div className='sb__end-icons'>
-               <BsBell color='#fff' size='2em'/>
-            </div>
-            <button className='sb__profile'>
-               <div>K</div>
-            </button>
+            {
+               isLoggedIn
+                  ? (
+                     <>
+                        <div className='sb__end-icons'>
+                           <RiVideoAddLine color='#fff' size='2em' />
+                        </div>
+                        <div className='sb__end-icons'>
+                           <BsBell color='#fff' size='2em' />
+                        </div>
+                        <button className='sb__profile'>
+                           <div>K</div>
+                        </button></>
+                  )
+                  : (
+                     <SignInButton />
+                  )
+            }
          </div>
       </div>
    )

@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Roboto:wght@300;400;500;700&family=Rubik+Bubbles&display=swap");
 
+:root {
+	--main-bg: #0f0f0f;
+	--text-secondary: #aaa;
+}
+
 html {
 	font-family: Roboto, Arial, sans-serif;
 	font-size: 12px;
@@ -23,7 +28,22 @@ body {
 	display: flex;
 }
 
-:root {
-	--main-bg: #0f0f0f;
-	--text-secondary: #aaa;
+.signin-btn {
+	height: 36px;
+	max-width: 105px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 6px;
+	color: #3ea6ff;
+	padding: 0 15px;
+	font-size: 14px;
+	font-weight: 500;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 18px;
+	cursor: pointer;
+}
+
+.signin-btn:hover {
+	background-color: #263850;
 }

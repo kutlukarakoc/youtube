@@ -3,10 +3,11 @@ import { topItems, bottomItems } from '../constants/sideNavi'
 import { useState } from 'react'
 import { IoAddCircleOutline } from 'react-icons/io5'
 import { nanoid } from 'nanoid'
+import SignInButton from './SignInButton'
 
 const SideNavi = () => {
 
-   const [isLoggedIn, setIsLoggedIn] = useState(true);
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
    return (
       <div className="sidenavi">
@@ -26,7 +27,7 @@ const SideNavi = () => {
          }
 
          {
-            isLoggedIn && (
+            isLoggedIn ? (
                <div className='navi__section'>
                   <div className='navi__section-title'>Subscriptions</div>
                   <div className='navi__section-entry'>
@@ -41,6 +42,12 @@ const SideNavi = () => {
                      </div>
                      <div className='navi__entry-title'>Browse Channels</div>
                   </div>
+               </div>
+            )
+            : (
+               <div className='navi__section' style={{padding:'16px 32px'}}>
+                  <div style={{marginBottom: '12px', fontSize:'1.1rem', fontWeight: '400'}}>Sign in to like videos, comment, and subscribe.</div>
+                  <SignInButton />
                </div>
             )
          }
