@@ -18,7 +18,6 @@ const HomeVideos: any = () => {
 
    if (isLoading) return <div>loading...</div>
    if (error) return <div>error</div>
-   console.log(data)
 
    return (
       <>
