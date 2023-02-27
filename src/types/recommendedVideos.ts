@@ -1,12 +1,3 @@
-interface PageInfo {
-   totalResults: number;
-   resultsPerPage: number;
-}
-
-interface Id {
-   kind: string;
-   playlistId: string;
-}
 
 interface Default {
    url: string;
@@ -26,10 +17,29 @@ interface High {
    height: number;
 }
 
+interface Standard {
+   url: string;
+   width: number;
+   height: number;
+}
+
+interface Maxres {
+   url: string;
+   width: number;
+   height: number;
+}
+
 interface Thumbnails {
    default: Default;
    medium: Medium;
    high: High;
+   standard: Standard;
+   maxres: Maxres;
+}
+
+interface Localized {
+   title: string;
+   description: string;
 }
 
 interface Snippet {
@@ -39,23 +49,50 @@ interface Snippet {
    description: string;
    thumbnails: Thumbnails;
    channelTitle: string;
+   categoryId: string;
    liveBroadcastContent: string;
-   publishTime: Date;
+   defaultLanguage: string;
+   localized: Localized;
+   defaultAudioLanguage: string;
+}
+
+interface ContentRating {
+}
+
+interface ContentDetails {
+   duration: string;
+   dimension: string;
+   definition: string;
+   caption: string;
+   licensedContent: boolean;
+   contentRating: ContentRating;
+   projection: string;
+}
+
+interface Statistics {
+   viewCount: string;
+   likeCount: string;
+   favoriteCount: string;
+   commentCount: string;
 }
 
 interface Item {
    kind: string;
    etag: string;
-   id: Id;
+   id: string;
    snippet: Snippet;
+   contentDetails: ContentDetails;
+   statistics: Statistics;
+}
+
+interface PageInfo {
+   totalResults: number;
+   resultsPerPage: number;
 }
 
 export interface RecommendedVideos {
    kind: string;
    etag: string;
-   nextPageToken: string;
-   regionCode: string;
-   pageInfo: PageInfo;
    items: Item[];
+   pageInfo: PageInfo;
 }
-
