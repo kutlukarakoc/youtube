@@ -7,7 +7,7 @@ import { formatTime } from '../hooks/formatTime';
 
 const queryClient = new QueryClient();
 
-const HomeItems: any = () => {
+const HomeVideos: any = () => {
 
    const { isLoading, error, data } = useQuery<RecommendedVideos, Error>('repoData', () =>
       fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=16&regionCode=US&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
@@ -30,7 +30,7 @@ const HomeItems: any = () => {
                   </div>
                   <div className='home__content-details'>
                      <div className='details__avatar'>
-                        <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.channelTitle} />
+                        <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.channelTitle} loading='lazy' />
                      </div>
                      <div className='details__meta'>
                         <h3 className="details__title">{item.snippet.title}</h3>
@@ -39,7 +39,7 @@ const HomeItems: any = () => {
                            <div className='details__metadata'>
                               <div className='details__metadata-views'>{formatViewCount(item.statistics.viewCount)}</div>
                               <div className='details__metadata-divider'>.</div>
-                              <div className='details__metadata-date'>{formatPublishDate(item.snippet.publishedAt)} days ago</div>
+                              <div className='details__metadata-date'>{formatPublishDate(item.snippet.publishedAt)}</div>
                            </div>
                         </div>
                      </div>
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
    return (
       <div className='home'>
          <QueryClientProvider client={queryClient}>
-            <HomeItems />
+            <HomeVideos />
          </QueryClientProvider>
       </div>
    )
