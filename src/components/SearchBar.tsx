@@ -6,11 +6,11 @@ import { IoSearchOutline } from 'react-icons/io5'
 import { HiMicrophone } from 'react-icons/hi'
 import { RiVideoAddLine } from 'react-icons/ri'
 import SignInButton from './SignInButton'
-import { useState } from 'react'
+import { useAppSelector } from '../store/hooks'
 
 const SearchBar = () => {
 
-   const [isLoggedIn, setIsLoggedIn] = useState(false)
+   const { user } = useAppSelector(state => state.auth)
 
    return (
       <div className='searchbar'>
@@ -36,7 +36,7 @@ const SearchBar = () => {
          </div>
          <div className='sb__end'>
             {
-               isLoggedIn
+               Object.keys(user)?.length
                   ? (
                      <>
                         <div className='sb__end-icons'>
@@ -46,8 +46,9 @@ const SearchBar = () => {
                            <BsBell color='#fff' size='2em' />
                         </div>
                         <button className='sb__profile'>
-                           <div>K</div>
-                        </button></>
+                           <img src={user.photoURL} alt="yotube" />
+                        </button>
+                     </>
                   )
                   : (
                      <SignInButton />
