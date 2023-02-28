@@ -7,10 +7,16 @@ import { HiMicrophone } from 'react-icons/hi'
 import { RiVideoAddLine } from 'react-icons/ri'
 import SignInButton from './SignInButton'
 import { useAppSelector } from '../store/hooks'
+import AvatarMenu from './AvatarMenu'
+import { useRef } from 'react'
 
 const SearchBar = () => {
 
    const { user } = useAppSelector(state => state.auth)
+   console.log(user)
+
+   const avatarMenuRef: any = useRef(null)
+   const handleAvatarMenu = (): void => avatarMenuRef.current.classList.toggle('sb__profile-menu-show')
 
    return (
       <div className='searchbar'>
@@ -45,8 +51,12 @@ const SearchBar = () => {
                         <div className='sb__end-icons'>
                            <BsBell color='#fff' size='2em' />
                         </div>
-                        <button className='sb__profile'>
-                           <img src={user.photoURL} alt="yotube" />
+                        <button className='sb__profile' onClick={handleAvatarMenu}>
+                           <img className='sb__profile-img' src={user.photoURL} alt="yotube" />
+                           <div className='sb__profile-menu' ref={avatarMenuRef}>
+                              <AvatarMenu />
+                           </div>
+                           
                         </button>
                      </>
                   )
