@@ -56,7 +56,6 @@ const SearchBar = () => {
                            <div className='sb__profile-menu' ref={avatarMenuRef}>
                               <AvatarMenu />
                            </div>
-                           
                         </button>
                      </>
                   )

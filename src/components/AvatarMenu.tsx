@@ -25,7 +25,7 @@ const AvatarMenu = () => {
                   <CgProfile size='1.5em' /> Kanalınız
                </div>
             </div>
-            <div className='sb__profile-menu__entry-wrapper' onClick={() => dispatch(logout)}>
+            <div className='sb__profile-menu__entry-wrapper' onClick={() => dispatch(logout())}>
                <div className='sb__profile-menu__entry'>
                   <RiLogoutBoxLine size='1.5em' /> Oturumu Kapat
                </div>
