@@ -1,17 +1,20 @@
 import { FaUserCircle } from 'react-icons/fa'
 import { register } from '../firebase'
-import { useAppDispatch } from '../store/hooks'
+import { useAppSelector, useAppDispatch } from '../store/hooks'
 import { login } from '../store/features/auth'
 
 const SignInButton: React.FC = () => {
 
+   const userData = useAppSelector(state => state.auth.user)
    const dispatch = useAppDispatch()
    const handleRegister = async () => {
-      try {
-         const user = await register()
-         dispatch(login(user?.providerData[0]))
-      } catch (error) {
-         console.log(error)
+      if (!Object.keys(userData)?.length) {
+         try {
+            const user = await register()
+            dispatch(login(user?.providerData[0]))
+         } catch (error) {
+            console.log(error)
+         }
       }
    }
 
