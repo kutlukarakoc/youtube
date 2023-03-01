@@ -9,7 +9,7 @@ const queryClient = new QueryClient();
 
 const HomeVideos: any = () => {
 
-   const { isLoading, error, data } = useQuery<RecommendedVideos, Error>('repoData', () =>
+   const { isLoading, error, data } = useQuery<RecommendedVideos, Error>('recommData', () =>
       fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=16&regionCode=US&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
          .then(res =>
             res.json()
