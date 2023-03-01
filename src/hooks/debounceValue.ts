@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 export const useDebouncedValue = (value: string, delay: number): string => {
 
    // use state hook to store the debounced value
-   const [debouncedValue, setDebouncedValue] = useState(value)
+   const [debouncedValue, setDebouncedValue] = useState<string>(value)
 
    // use effect hook to update the debounced value with a delay
    useEffect(() => {
