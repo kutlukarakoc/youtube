@@ -1,13 +1,13 @@
 import '../styles/sidenavi.scss'
 import { topItems, bottomItems } from '../constants/sideNavi'
-import { useState } from 'react'
 import { IoAddCircleOutline } from 'react-icons/io5'
 import { nanoid } from 'nanoid'
 import SignInButton from './SignInButton'
+import { useAppSelector } from '../store/hooks'
 
 const SideNavi = () => {
 
-   const [isLoggedIn, setIsLoggedIn] = useState(false);
+   const { user } = useAppSelector(state => state.auth)
 
    return (
       <div className="sidenavi">
@@ -27,7 +27,7 @@ const SideNavi = () => {
          }
 
          {
-            isLoggedIn ? (
+            Object.keys(user)?.length ? (
                <div className='navi__section'>
                   <div className='navi__section-title'>Subscriptions</div>
                   <div className='navi__section-entry'>
